@@ -1,0 +1,108 @@
+{% load static %}
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    
+    <meta charset="utf-8">
+    <title>Login & Signup Form | CodingNepal</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'jquery.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title-text">
+       <div class="title login">Signup Form</div>
+        <div class="title signup">Signup Form</div>
+      </div>
+      <div class="form-container">
+        
+        </div>
+        <div class="form-inner">
+          <form action="regi" class="Signup" method="post">
+           
+           <form action="regi" class="signup" method="post">
+            <div class="field">
+              <input type="text" placeholder="Name" name="name" required>
+            </div>
+            <div class="field">
+              <input type="text" placeholder="Address" name="addr" required>
+            </div>
+            <br>
+
+            <label>  
+                Gender:   
+            </label>  <br>  
+            <input type="radio" id="gender" name="gender"  value="male"/> Male           
+            <input type="radio" id="gender" name="gender" value="female"/> Female <br/>   
+            
+            
+            <br>
+            {% csrf_token %}
+             {% comment %} <script src="//geodata.solutions/includes/countrystatecity.js"></script> {% endcomment %}
+             
+              <body>
+                
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-4">
+                 
+
+                    <h7>State</h7>
+                    <select name="state" class="state form-control" id="stateId">
+                  <option value="">Select State</option>
+                  {% for x in state %}
+                  <option value={{ x.id }}>{{ x.state }} </option>
+                 {% endfor %}
+              </select>
+
+                  </div>
+                  <div class="col-sm-4">
+                    <h7>District</h7>
+                    <select name="district" class="district form-control" id="districtId">
+                  <option value="">Select District</option>
+              </select>
+                  </div>
+                  
+                  </div>
+               
+            
+            <br>
+          
+            <label>  
+              Skills:   
+            </label>  <br>           
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Python" id="python" name="languages">
+                  <label class="form-check-label" for="python">Python</label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="PHP" id="php" name="languages">
+                  <label class="form-check-label" for="php">PHP</label></div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="JAVA" id="java" name="languages">
+                  <label class="form-check-label" for="java">JAVA</label></div>
+                  
+              <br>    
+            <div class="field">
+              <input type="text" placeholder="Email" name="mail" required>
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password"  name="pass"required>
+            </div>
+
+           <div class="field btn">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Register"> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
